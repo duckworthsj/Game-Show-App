@@ -1,7 +1,7 @@
 // Elements from HTML
-const qwerty = document.querySelector('qwerty');
+const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('phrase');
-const btn__reset = document.querySelector('btn__reset')
+const btn__reset = document.querySelector('.btn__reset')
 let missed = 0;
 
 // The phrases array
@@ -30,7 +30,7 @@ function addPhrasetoDisplay(arr) {
   for (let i = 0; i < arr.length; i++) {
     let li = document.createElement('li');
     li.textContent = arr[i];
-    let ul = phrase.querySelector('ul');
+    let ul = document.querySelector('ul');
       ul.appendChild(li);
       if( arr[i] != ' ' ){
         li.classList.add('letter');
@@ -45,12 +45,13 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 addPhrasetoDisplay(phraseArray.toLowerCase());
 
 // checkLetter function
-function checkLetter(button) {
-  let list = phrase.querySelector("li");
-  let match = null;
+addPhraseToDisplay(phraseArray.toLowerCase());
 
-  for(let i = 0; i < list.length; i++) {
-    if(button === list[i].textContent) {
+function checkLetter(button){
+  let list = document.querySelector("li");
+  let match = null;
+    for(let i = 0; i < list.length; i++) {
+      if(button === list[i].textContent) {
       list[i].classList.add("show");
       match = button;
     }
@@ -62,9 +63,9 @@ function checkLetter(button) {
 qwerty.addEventListener('click', (event) => {
   let keyboard = qwerty.querySelectorAll('.keyrow');
   let button = qwerty.getElementsByTagName('button');
-  if ( event.target.tagName === 'BUTTON' && button.classList != 'chosen' ) {
-    event.target.classList.add('chosen');
-    event.target.disabled = true;
+    if ( event.target.tagName === 'BUTTON' && button.classList != 'chosen' ) {
+      event.target.classList.add('chosen');
+      event.target.disabled = true;
     const letterFound = checkLetter(event.target.textContent);
       if (letterFound == null) {
         let ol = document.querySelectorAll('');
