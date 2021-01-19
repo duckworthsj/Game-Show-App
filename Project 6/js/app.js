@@ -45,30 +45,28 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 addPhrasetoDisplay(phraseArray.toLowerCase());
 
 // checkLetter function
-addPhraseToDisplay(phraseArray.toLowerCase());
-
-function checkLetter(button){
-  let list = document.querySelector("li");
+function checkLetter(btn) {
+  let list = document.querySelectorAll('.letter');
   let match = null;
-    for(let i = 0; i < list.length; i++) {
-      if(button === list[i].textContent) {
-      list[i].classList.add("show");
-      match = button;
-    }
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].textContent.toLowerCase() === btn) {
+      list[i].classList.add('show');
+      match = list[i].textContent;
+    } 
   }
   return match;
-};
+}
 
 // Keyboard event listener
 qwerty.addEventListener('click', (event) => {
-  let keyboard = qwerty.querySelectorAll('.keyrow');
+  let keyboard = qwerty.getElementsByClassName('.keyrow');
   let button = qwerty.getElementsByTagName('button');
     if ( event.target.tagName === 'BUTTON' && button.classList != 'chosen' ) {
       event.target.classList.add('chosen');
       event.target.disabled = true;
     const letterFound = checkLetter(event.target.textContent);
       if (letterFound == null) {
-        let ol = document.querySelectorAll('');
+        let ol = document.querySelectorAll('#scoreboard ol li img');
         ol[missed].src = "images/lostHeart.png";
         missed += 1;
       }
