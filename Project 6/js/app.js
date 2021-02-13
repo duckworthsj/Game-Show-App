@@ -1,7 +1,8 @@
 // Elements from HTML
 const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('phrase');
-const btn__reset = document.querySelector('.btn__reset')
+const btn__reset = document.querySelector('.btn__reset');
+const loseMessage = document.querySelector('.lose-message');
 let missed = 0;
 
 // The phrases array
@@ -86,5 +87,7 @@ function checkWin() {
   if ( missed >= 5 ) {
     startOverlay.style.display = 'block';
     startOverlay.classList.add('lose');
+    btn__reset.style.display = 'none';
+    loseMessage.style.display = 'block';
   }
 };
