@@ -1,2 +1,2 @@
-# Project-6
-Treehouse FEWD TechDegree Project 6
+# Game-Show-App
+An interactive word guessing game
